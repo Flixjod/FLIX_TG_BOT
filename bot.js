@@ -61,7 +61,7 @@ const getUserInfo = async (userId) => {
 };
 
 // Helper function to store broadcast history in MongoDB
-const storeBroadcastHistory = async (message, photo, caption, o) => {
+const storeBroadcastHistory = async (message, photo, caption, photo_link) => {
   let newBroadcastEntry;
   if (photo !== null) {
     newBroadcastEntry = {
