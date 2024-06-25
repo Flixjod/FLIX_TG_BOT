@@ -487,11 +487,10 @@ bot.on('message', (msg) => {
         const chatId = msg.chat.id;
         const forwardedFromId = msg.forward_from.id;
         const forwardedFromName = msg.forward_from.first_name;
-        const forwardedFromUsername = msg.forward_from.username ? `@${msg.forward_from.username}` : '';
-        
+        const forwardedFromUsername = msg.forward_from.username;
         bot.sendMessage(
           chatId,
-          `𝗙𝗼𝗿𝘄𝗮𝗿𝗱𝗲𝗱 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗜𝗻𝗳𝗼\n\n✮ 𝗨𝘀𝗲𝗿 𝗜𝗗 ➔ <code>${forwardedFromId}</code>\n✮ 𝗨𝘀𝗲𝗿𝗻𝗮𝗺𝗲 ➔ ${forwardedFromUsername}\n✮ 𝗨𝘀𝗲𝗿 𝗣𝗿𝗼𝗳𝗶𝗹𝗲 ➔ <a href='tg://user?id=${forwardedFromId}'>${forwardedFromName}</a>`,
+          `𝗙𝗼𝗿𝘄𝗮𝗿𝗱𝗲𝗱 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗜𝗻𝗳𝗼\n\n✮ 𝗨𝘀𝗲𝗿 𝗜𝗗 ➔ <code>${forwardedFromId}</code>\n✮ 𝗨𝘀𝗲𝗿𝗻𝗮𝗺𝗲 ➔ @${forwardedFromUsername}\n✮ 𝗨𝘀𝗲𝗿 𝗣𝗿𝗼𝗳𝗶𝗹𝗲 ➔ <a href='tg://user?id=${forwardedFromId}'>${forwardedFromName}</a>`,
           {
             parse_mode: "HTML",
             disable_web_page_preview: true,
@@ -500,6 +499,7 @@ bot.on('message', (msg) => {
         );
       }
     });
+
 // Handling the /ping command
 bot.onText(/\/ping/, (msg) => {
   const chatId = msg.chat.id;
